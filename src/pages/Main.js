@@ -26,7 +26,7 @@ const Main = () => {
 
   const getAttrs = () => {
     axios
-    .get(`https://apis.data.go.kr/6260000/AttractionService/getAttractionKr?serviceKey=L4O6Jd5locofQV0Sa674EwMQ4GyHi380DNlzkWVMQLw8O2LvzNMvBKe1RxTj4jssgmQKPrDvinJFtSOIs9KmbA%3D%3D&pageNo=${getPageNo}&numOfRows=10&resultType=json`)
+    .get(`https://apis.data.go.kr/6260000/AttractionService/getAttractionKr?serviceKey=%2FGbok30IjcwW5J2H%2F7UOzGDQjINRszLW%2FAVM2FDu1y4UXC%2BygQBLp8rXyS6sF1baQAxbjzsDd1QidrQX%2FJWP7A%3D%3D&pageNo=${getPageNo}&numOfRows=10&resultType=json`)
     .then( (response) => {
       console.log(response.data.getAttractionKr.item);
       setAttrs(response.data.getAttractionKr.item);
@@ -47,7 +47,8 @@ const Main = () => {
     <HeadLayout>
       <div>
         <div>메인페이지</div>
-        <Container>
+        <Container> 
+          {/* Container은 옆에 여백있는 거, Fluid는 여백 없는 거 */}
           <Row>
             <Col>
               <Button className="me-3" variant="warning" onClick={ () => navigate(`/?pageNo=${parseInt(getPageNo)-1}`)}>이전</Button>
@@ -71,7 +72,7 @@ const Main = () => {
                       <Card.Text style={ {height : "100px", overflow: "hidden"}}>
                         {value.ITEMCNTNTS}
                       </Card.Text>
-                      <Button variant="primary">Go somewhere</Button>
+                      <Button variant="primary" onClick={ () => navigate(`/counter/${value.UC_SEQ}`)}>자세히 보기</Button>
                     </Card.Body>
                  </Card>
                 </Col>

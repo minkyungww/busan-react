@@ -9,6 +9,7 @@ function App() {
       <Routes>
         <Route path={"/"} element={<Main />} />
         <Route path={"/counter/:seq"} element={<Counter />} />
+        <Route path={"*"} element={<div>페이지가 없습니다.</div>}/>
       </Routes>
     </BrowserRouter>
   );
